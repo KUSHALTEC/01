@@ -272,7 +272,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   );
 
   return (
-    <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-r border-gray-200/50 dark:border-gray-700/50 flex flex-col h-full w-64 md:w-80 max-w-full md:relative fixed z-40 md:z-auto left-0 top-0 bottom-0 transition-transform duration-300 md:translate-x-0">
+    <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-r border-gray-200/50 dark:border-gray-700/50 flex flex-col h-full w-64 md:w-80 max-w-full md:relative fixed z-50 md:z-auto left-0 top-0 bottom-0 transition-transform duration-300 md:translate-x-0">
       {/* Mobile close button */}
       <button
         className="md:hidden absolute top-4 right-4 z-50 p-2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm rounded-full shadow-lg border border-gray-200/50 dark:border-gray-700/50 hover:bg-white dark:hover:bg-gray-900 transition-all duration-200"

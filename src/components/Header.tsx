@@ -102,10 +102,10 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <div>
-      <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-700/50 px-3 py-2 sm:px-6 sm:py-4 sticky top-0 z-30 w-full">
-        <div className="flex flex-row items-center justify-between max-w-full sm:max-w-6xl mx-auto">
+      <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-700/50 px-3 py-2 sm:px-6 sm:py-4 fixed top-0 left-0 right-0 z-30 w-full md:left-64 md:w-auto">
+        <div className="flex flex-row items-center justify-between max-w-full">
           {/* Left: Logo and Model Selector */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
             <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
               <span className="text-white text-sm font-bold">AI</span>
             </div>
@@ -121,7 +121,7 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
             {/* Model Selector (chat mode only) */}
             {currentMode === 'chat' && (
-              <div className="relative w-full max-w-xs ml-2 sm:ml-4 hidden sm:block">
+              <div className="relative w-full max-w-xs ml-2 sm:ml-4 hidden md:block">
                 <select
                   value={selectedModel}
                   onChange={(e) => onModelChange(e.target.value)}
@@ -141,7 +141,7 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
 
           {/* Right: Actions - Always visible but responsive */}
-          <div className="flex items-center space-x-1 sm:space-x-2">
+          <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
             {/* New Chat Button for Image/Video modes - Mobile responsive */}
             {(currentMode === 'image' || currentMode === 'video') && onNewChat && (
               <button
@@ -193,8 +193,8 @@ export const Header: React.FC<HeaderProps> = ({
               )}
               {/* User Section */}
               {user ? (
-                <div className="flex items-center space-x-3">
-                  <div className="flex items-center space-x-2 px-3 py-2 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800">
+                <div className="flex items-center space-x-1 sm:space-x-3">
+                  <div className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-3 py-2 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800">
                     <div className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center overflow-hidden">
                       {userDetails?.photo ? (
                         <img
@@ -206,33 +206,33 @@ export const Header: React.FC<HeaderProps> = ({
                         <User size={10} className="sm:w-3 sm:h-3 text-white" />
                       )}
                     </div>
-                    <span className="text-xs sm:text-sm font-medium text-green-700 dark:text-green-300 hidden sm:inline">
+                    <span className="text-xs sm:text-sm font-medium text-green-700 dark:text-green-300 hidden md:inline">
                       {userDetails?.firstName || user.email?.split('@')[0]}
                     </span>
                   </div>
                   <button
                     onClick={handleSignOut}
-                    className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium text-white bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+                    className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-3 py-2 text-xs sm:text-sm font-medium text-white bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
                     <LogOut size={14} className="sm:w-4 sm:h-4" />
-                    <span className="hidden sm:inline">Sign Out</span>
+                    <span className="hidden md:inline">Sign Out</span>
                   </button>
                 </div>
               ) : (
                 <div className="flex items-center space-x-1 sm:space-x-2">
                   <button
                     onClick={handleSignIn}
-                    className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
+                    className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-3 py-2 text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
                   >
                     <LogIn size={14} className="sm:w-4 sm:h-4" />
-                    <span className="hidden sm:inline">Sign In</span>
+                    <span className="hidden md:inline">Sign In</span>
                   </button>
                   <button
                     onClick={handleSignUp}
-                    className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium text-white bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+                    className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-3 py-2 text-xs sm:text-sm font-medium text-white bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
                     <UserPlus size={14} className="sm:w-4 sm:h-4" />
-                    <span className="hidden sm:inline">Sign Up</span>
+                    <span className="hidden md:inline">Sign Up</span>
                   </button>
                 </div>
               )}
