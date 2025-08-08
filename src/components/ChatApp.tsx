@@ -166,8 +166,8 @@ function ChatApp() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-indigo-400/20 to-cyan-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }}></div>
       </div>
 
-      {/* Hamburger for mobile */}
-      <div className="md:hidden fixed top-4 left-4 z-50">
+      {/* Hamburger for mobile - Right side */}
+      <div className="md:hidden fixed top-4 right-4 z-50">
         <button
           className="p-2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200/50 dark:border-gray-700/50 hover:bg-white dark:hover:bg-gray-900 transition-all duration-200"
           onClick={() => setSidebarOpen(!sidebarOpen)}
